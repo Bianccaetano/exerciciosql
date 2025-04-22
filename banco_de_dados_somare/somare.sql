@@ -154,4 +154,7 @@ WHERE tipo = "Conta a Receber"
   AND YEAR(data_vencimento) = 2025;
 
 
-
+/*Alterando status da conta*/
+UPDATE conta
+SET situacao = IF( CURRENT_TIMESTAMP > data_vencimento, "Atrasado", "Pendente") 
+WHERE situacao = "Pendente";
